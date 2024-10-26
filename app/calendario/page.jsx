@@ -1,9 +1,9 @@
-export default function Calendario() {
+import Calendar from "../components/calendario";
 
-    return(
-        <div className="container">
-            <h3>Calendario</h3>
-        </div>
-    )
-
+export default function CalendarPage() {
+  return (
+    <>
+      <Calendar />
+    </>
+  );
 }

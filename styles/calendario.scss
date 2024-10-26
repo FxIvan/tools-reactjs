@@ -1,3 +1,39 @@
-h3{
-    color: red;
+.ctn-calendar {
+  &-selector {
+    display: flex;
+    .btn {
+      &-months, &-years {
+        .ctn-selector-months, .ctn-selector-years {
+          .btn-default {
+            padding: 4px 16px;
+            border-radius: 10px;
+            border: 1px solid #d9d9d9;
+            margin: 0 5px 5px;
+          }
+          .select-list-ctn {
+            .select-list {
+              display: flex;
+              flex-direction: column;
+              border-radius: 10px;
+              & > button {
+                &:first-child {
+                  border-radius: 10px 10px 0 0;
+                }
+                &:last-child {
+                  border-radius: 0 0 10px 10px;
+                }
+                border: none;
+                text-align: left;
+                padding: 3px 30px;
+                background-color: #d9d9d9;
+                &:hover {
+                  background-color: #f2f2f2;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
