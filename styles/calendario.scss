@@ -4,6 +4,7 @@
     .btn {
       &-months, &-years {
         .ctn-selector-months, .ctn-selector-years {
+            position: relative;
           .btn-default {
             padding: 4px 16px;
             border-radius: 10px;
@@ -11,6 +12,8 @@
             margin: 0 5px 5px;
           }
           .select-list-ctn {
+            position: absolute;
+            top: 100%;
             .select-list {
               display: flex;
               flex-direction: column;
