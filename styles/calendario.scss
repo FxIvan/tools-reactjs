@@ -41,9 +41,19 @@
   }
 
   &-date-picker{
+    background-color:#d9d9d9;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: fit-content;
+    padding: 12px 18px;
+    border-radius: 10px;
+    height: 300px;
+    overflow: hidden;
+    overflow-y: auto;
+    .ctn-calendar{
+      scroll-behavior: smooth;
+    }
     .ctn-days, .ctn-day-number {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
