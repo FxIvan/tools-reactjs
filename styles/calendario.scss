@@ -39,4 +39,37 @@
       }
     }
   }
+
+  &-date-picker{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .ctn-days, .ctn-day-number {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-gap: 5px;
+      margin: 10px 0;
+      .btn-day, .btn-number {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        &.disabled {
+          color: #d9d9d9;
+          cursor: not-allowed;
+        }
+        &.selected {
+          background-color: #d9d9d9;
+        }
+        &.today {
+          background-color: #f2f2f2;
+        }
+        &:hover {
+          background-color: #f2f2f2;
+        }
+      }
+    }
+  }
 }

@@ -26,7 +26,9 @@ export const listYears = [
   "2030",
 ];
 
-export const monthsAndDaysWithYeaers = [
+export const daysInitials = ["L", "M", "M", "J", "V", "S", "D"];
+
+export const monthsAndDaysWithYears = [
   {
     month: "Enero",
     days: 31,
