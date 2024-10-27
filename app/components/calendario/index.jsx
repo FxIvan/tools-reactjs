@@ -64,39 +64,54 @@ function SelectorYears({ years, defaultOption }) {
 }
 
 function DatePicker({ dataCalendar, days }) {
-  const daysNumber = (dayMax) => {
-    const listOfDays = [];
-    for (let i = 1; i <= dayMax; i++) {
-      listOfDays.push(i);
-    }
-    return listOfDays;
-  };
-  return (
-    <div className="ctn-date-picker">
-      <div className="ctn-calendar">
-        {dataCalendar.map((monthAndDay, index) => (
-          <div key={index} className="ctn-month">
-            <h4>{monthAndDay.month}</h4>
-            <div className="ctn-days">
-              {days.map((day, index) => (
-                <button key={index} className="btn-day">
-                  {day}
-                </button>
-              ))}
-            </div>
-            <div className="ctn-day-number">
-              {daysNumber(monthAndDay.days).map((day, index) => (
-                <button key={index} className="btn-number">
-                  {day}
-                </button>
-              ))}
-            </div>
-          </div>
-        ))}
+    const daysNumber = (dayMax, startingDay) => {
+      const listOfDays = [];
+      
+      for (let i = 0; i < startingDay; i++) {
+        listOfDays.push(null);
+      }
+
+      for (let i = 1; i <= dayMax; i++) {
+        listOfDays.push(i);
+      }
+  
+      return listOfDays;
+    };
+  
+    let startingDay = 0;
+  
+    return (
+      <div className="ctn-date-picker">
+        <div className="ctn-calendar">
+          {dataCalendar.map((monthAndDay, index) => {
+            const daysArray = daysNumber(monthAndDay.days, startingDay);
+  
+            startingDay = (startingDay + monthAndDay.days) % 7;
+  
+            return (
+              <div key={index} className="ctn-month">
+                <h4>{monthAndDay.month}</h4>
+                <div className="ctn-days">
+                  {days.map((day, index) => (
+                    <button key={index} className="btn-day">
+                      {day}
+                    </button>
+                  ))}
+                </div>
+                <div className="ctn-day-number">
+                  {daysArray.map((day, index) => (
+                    <button key={index} className="btn-number">
+                      {day ? day : ""} {/* Mostrar día o vacío si es null */}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
 
 export default function Calendar() {
   return (
